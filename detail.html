@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICANNOTE TEAM - 제품 상세</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            background-color: #9FD5D5;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #8BC5C5;
+        }
+        
+        /* Product Section */
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3rem 5%;
+            gap: 2rem;
+        }
+        
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+            background-color: #e9f0f5;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .product-category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .product-type span:first-child {
+            color: #666;
+            margin-right: 0.5rem;
+        }
+        
+        .product-divider {
+            height: 1px;
+            background-color: #ccc;
+            margin: 1.5rem 0;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-label {
+            color: #666;
+            margin-right: 0.5rem;
+        }
+        
+        .price-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .price-unit {
+            font-size: 0.9rem;
+            margin-left: 0.2rem;
+        }
+        
+        .buy-button {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .buy-button:hover {
+            background-color: #333;
+        }
+        
+        /* Description Section */
+        .description-section {
+            padding: 2rem 5%;
+            text-align: center;
+        }
+        
+        .description-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .description-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: #9FD5D5;
+        }
+        
+        .description-content {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        
+        .description-image {
+            width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            background-color: #eee;
+            min-height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+        }
+        
+        .footer-info {
+            font-size: 0.8rem;
+            color: #666;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .footer-button {
+            background-color: #222;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .product-section {
+                flex-direction: column;
+            }
+            
+            .product-image, .product-details {
+                min-width: 100%;
+            }
+            
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/api/placeholder/120/40" alt="ICANNOTE TEAM 로고">
+        </div>
+        <div class="nav-menu">
+            <a href="#">아이캔프로그램 소개</a>
+            <a href="#">정기구독 상품들</a>
+        </div>
+        <a href="#" class="cta-button">공식카페</a>
+    </header>
+
+    <section class="product-section">
+        <div class="product-image">
+            <img src="/api/placeholder/600/400" alt="아이캔노트 프로그램 구독 이미지">
+        </div>
+        
+        <div class="product-details">
+            <div class="product-category">장치변경 같이 진행 프로그램</div>
+            <h1 class="product-title">아이캔노트 프로그램 구독</h1>
+            
+            <div class="product-type">
+                <span>방식:</span>
+                <span>매달 정기결제</span>
+            </div>
+            
+            <div class="product-divider"></div>
+            
+            <div class="product-price">
+                <span class="price-label">비용:</span>
+                <span class="price-value">30,000</span>
+                <span class="price-unit">원</span>
+            </div>
+            
+            <a href="#" class="buy-button">바로결제</a>
+        </div>
+    </section>
+
+    <section class="description-section">
+        <h2 class="description-title">상세설명</h2>
+        
+        <div class="description-content">
+            <div class="description-image">
+                상세 이미지가 여기에 표시됩니다
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="/api/placeholder/120/40" alt="ICANNOTE TEAM 로고">
+        </div>
+        <div class="footer-info">
+            아이캔노트 대표자:이영미, 이우울 사업자 등록번호 안내: [304213131] 통신판매업 신고 2023-서울 강남-00213 [사업자정보확인]<br>
+            전화: 010-9999-9999 팩스: 주소: 010001 서울 강남구 강남대로 299-19 빌딩이름빌딩타워 310호 제휴문의:<br>
+            이메일: team@icannote.com [후원계좌: 농협 000-000-0000000 이영미(아이캔노트)]<br>
+            Contact team@icannote.com for more information.<br>
+            Copyright © 2017 아이캔노트. All rights reserved.
+        </div>
+        <a href="#" class="footer-button">사업자정보확인</a>
+    </footer>
+</body>
+</html>
